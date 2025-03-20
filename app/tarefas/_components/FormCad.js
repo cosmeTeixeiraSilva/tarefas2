@@ -17,7 +17,7 @@ export default function FormCad() {
                 name="titulo"
                 placeholder="Título"
                 required
-                className="px-2 rounded w-1/2 text-black"
+                className="px-2 rounded w-1/2 text-black border border-blue-500"
                 autoFocus
                 whileFocus={{ scale: 1.05 }}
             />
@@ -26,7 +26,7 @@ export default function FormCad() {
                 name="descricao"
                 placeholder="Descrição"
                 required
-                className="px-2 rounded w-1/2 text-black"
+                className="px-2 rounded w-1/2 text-black border border-blue-500"
                 whileFocus={{ scale: 1.05 }}
             />
             <motion.button

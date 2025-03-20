@@ -29,7 +29,7 @@ export default function ListaTarefas2({ tarefas }) {
                         transition={{ delay: index * 0.1 }}
                         whileHover={{ scale: 0.95 }}
                     >
-                        <td className="w-1/3 p-2 text-start bg-slate-500 text-blue-600">{index + 1} - {tarefa.descricao}</td>
+                        <td className="w-1/3 p-2 text-start bg-slate-500 text-white">{index + 1} - {tarefa.descricao}</td>
                         <td className={`w-1/3 p-2 ${tarefa.status === "Pendente" ? "bg-red-800" : "bg-green-500"} text-black`}>
                             {tarefa.status}
                         </td>
