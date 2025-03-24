@@ -11,15 +11,18 @@ export default async function Page() {
 
 
   return (
-    <div className=' text-center flex flex-col mx-auto w-full overflow-hidden'>
-      <nav className='bg-blue-600 p-1 flex items-center justify-end'>
+    <div className=' text-center flex flex-col mx-auto w-full overflow-hidden bg-[#121212]'>
+      <nav className='bg-blue-600 p-1 flex items-center justify-end gap-4'>
         <Link href="/" >
-          <button className="px-8 rounded text-orange-400 font-bold border border-orange-400">Sair</button>
+          <button className="px-8 rounded text-orange-400 font-bold border border-orange-400 bg-[#121212]">Sair</button>
+        </Link>
+        <Link href="/dashboard" >
+          <button className="px-8 rounded text-orange-400 font-bold border border-orange-400 bg-[#121212]">DashBoard</button>
         </Link>
       </nav>
       <hr />
       <div className=' flex flex-col justify-center items-center rounded m-4 '>
-        <h1 className='py-2 underline underline-offset-2 text-center w-full text-orange-400 font-bold'>Lista de Tarefas Senac Lavras 2025:</h1>
+        <h1 className='py-2 underline underline-offset-2 text-center w-full text-orange-400 font-bold'>Lista de Tarefas:</h1>
 
         {/* Mover o formulário e os botões para um Client Component */}
         <FormCad />

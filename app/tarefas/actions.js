@@ -19,10 +19,11 @@ export async function listarTarefas() {
 }
 
 export async function atualizarTarefa(formData) {
-    
+
     const tarefaService = new TarefaService();
     const id = parseInt(formData.get('id'));
     const status = formData.get('status');
+    console.log(status);
     await tarefaService.atualizarTarefa(id, status);
     revalidatePath("/tarefas"); // Atualiza a página principal automaticamente
     return { status: true, message: "Tarefa Atualizada com Sucesso..." }
