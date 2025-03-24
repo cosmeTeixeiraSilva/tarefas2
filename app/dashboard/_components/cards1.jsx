@@ -88,20 +88,3 @@ export default function Cards1({
   );
 }
 
-// Função getStaticProps para buscar os dados e configurar ISR
-export async function getStaticProps() {
-  const qtdTarefas = await total_Tarefas();
-  const qtdTarefasPendentes = await total_TarefasPendentes();
-  const qtdTarefasConcluidas = await total_TarefasConcluidas();
-  const qtdTarefasAndamento = await total_TarefasAndamento();
-
-  return {
-    props: {
-      qtdTarefas,
-      qtdTarefasPendentes,
-      qtdTarefasConcluidas,
-      qtdTarefasAndamento,
-    },
-    revalidate: 10, // Regenera a página a cada 10 segundos
-  };
-}
