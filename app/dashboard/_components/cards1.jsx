@@ -1,5 +1,6 @@
-"use server"
-import { TarefaService } from "@/lib/TarefaService";
+"use client";
+
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,15 +10,29 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 
-// ✅ Agora o componente é assíncrono e roda no servidor
-export default async function Cards1() {
-  const tarefaService = new TarefaService();
+export default function Cards1() {
+  const [dados, setDados] = useState({
+    qtdTarefas: 0,
+    qtdTarefasPendentes: 0,
+    qtdTarefasConcluidas: 0,
+    qtdTarefasAndamento: 0,
+  });
 
-  // ✅ Pegando os dados diretamente no servidor
-  const tarefas = await tarefaService.totalTarefas(); // Obtém a lista completa de tarefa
-  const TarefasPendentes = await tarefaService.totalTarefasPendentes();
-  const TarefasConcluidas = await tarefaService.totalTarefasConcluida();
-  const TarefasAndamento = await tarefaService.totalTarefasAndamento();
+  // Função para buscar os dados da API
+  const fetchDados = async () => {
+    try {
+      const res = await fetch("/api/tarefas");
+      const data = await res.json();
+      console.log(data);
+      setDados(data);
+    } catch (error) {
+      console.error("Erro ao buscar os dados:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchDados();
+  }, []);
 
   return (
     <div className="grid grid-cols-4 gap-2 px-2 mt-2">
@@ -27,7 +42,7 @@ export default async function Cards1() {
           <CardTitle>Tarefas Registradas:</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-4xl font-semibold">{tarefas} tarefas</p>
+          <p className="text-4xl font-semibold">{dados.qtdTarefas} tarefas</p>
         </CardContent>
         <CardFooter>
           <Button className="w-1/2 m-auto bg-transparent border">Ver Mais</Button>
@@ -40,7 +55,7 @@ export default async function Cards1() {
           <CardTitle>Tarefas Pendentes:</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-4xl font-semibold">{TarefasPendentes} tarefas</p>
+          <p className="text-4xl font-semibold">{dados.qtdTarefasPendentes} tarefas</p>
         </CardContent>
         <CardFooter>
           <Button className="w-1/2 m-auto bg-transparent border">Ver Mais</Button>
@@ -53,7 +68,7 @@ export default async function Cards1() {
           <CardTitle>Concluídas:</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-4xl font-semibold">{TarefasConcluidas} tarefas</p>
+          <p className="text-4xl font-semibold">{dados.qtdTarefasConcluidas} tarefas</p>
         </CardContent>
         <CardFooter>
           <Button className="w-1/2 m-auto bg-transparent border">Ver Mais</Button>
@@ -66,7 +81,7 @@ export default async function Cards1() {
           <CardTitle>Em Andamento:</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-4xl font-semibold">{TarefasAndamento} tarefas</p>
+          <p className="text-4xl font-semibold">{dados.qtdTarefasAndamento} tarefas</p>
         </CardContent>
         <CardFooter>
           <Button className="w-1/2 m-auto bg-transparent border">Ver Mais</Button>
