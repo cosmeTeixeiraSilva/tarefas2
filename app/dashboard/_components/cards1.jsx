@@ -14,11 +14,12 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 
-export default async function Cards1() {
-  const qtdTarefas = await total_Tarefas(); // Chamada direta da Server Action - Deve ser Async - Await
-  const qtdTarefasPendentes = await total_TarefasPendentes(); // Chamada direta da Server Action - Deve ser Async - Await
-  const qtdTarefasConcluidas = await total_TarefasConcluidas(); // Chamada direta da Server Action - Deve ser Async - Await
-  const qtdTarefasAndamento = await total_TarefasAndamento(); // Chamada direta da Server Action - Deve ser Async - Await
+export default function Cards1({
+  qtdTarefas,
+  qtdTarefasPendentes,
+  qtdTarefasConcluidas,
+  qtdTarefasAndamento
+}) {
   return (
     <div className="grid-cols-4 gap-2 flex  px-2 mt-2 ">
       {/* Coluna 1 - Card Quantidade de Tarefas  */}
@@ -85,4 +86,22 @@ export default async function Cards1() {
       </Card>
     </div>
   );
+}
+
+// Função getStaticProps para buscar os dados e configurar ISR
+export async function getStaticProps() {
+  const qtdTarefas = await total_Tarefas();
+  const qtdTarefasPendentes = await total_TarefasPendentes();
+  const qtdTarefasConcluidas = await total_TarefasConcluidas();
+  const qtdTarefasAndamento = await total_TarefasAndamento();
+
+  return {
+    props: {
+      qtdTarefas,
+      qtdTarefasPendentes,
+      qtdTarefasConcluidas,
+      qtdTarefasAndamento,
+    },
+    revalidate: 10, // Regenera a página a cada 10 segundos
+  };
 }
