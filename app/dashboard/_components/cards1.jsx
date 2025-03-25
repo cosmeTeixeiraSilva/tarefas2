@@ -52,7 +52,7 @@ export default function Cards1() {
       </Card>
 
       {/* Card 2 - Tarefas Pendentes */}
-      <Card className="w-[90vw] sm:w-full h-44 bg-blue-500 text-white m-auto animate-pulse">
+      <Card className="w-[90vw] sm:w-full h-44 bg-blue-500 text-white m-auto animate-bounce">
         <CardHeader>
           <CardTitle>Tarefas Pendentes:</CardTitle>
         </CardHeader>
@@ -69,7 +69,7 @@ export default function Cards1() {
       </Card>
 
       {/* Card 3 - Tarefas Concluídas */}
-      <Card className="w-[90vw] sm:w-full  h-44 bg-purple-600 text-white m-auto animate-bounce">
+      <Card className="w-[90vw] sm:w-full  h-44 bg-purple-600 text-white m-auto animate-pulse">
         <CardHeader>
           <CardTitle>Concluídas:</CardTitle>
         </CardHeader>
