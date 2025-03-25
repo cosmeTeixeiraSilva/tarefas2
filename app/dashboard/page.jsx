@@ -2,7 +2,6 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import Cards1 from "./_components/cards1";
 import Link from "next/link";
-import { motion } from "motion/react";
 
 export default function page() {
   return (
@@ -18,17 +17,15 @@ export default function page() {
           </Button>
         </Link>
       </div>
-      <div className="text-xl w-full m-auto h-12 text-orange-500 p-4 text-end font-semibold gap-2 flex items-center justify-end">
-
-      </div>
+      <div className="text-xl w-full m-auto h-12 text-orange-500 p-4 text-end font-semibold gap-2 flex items-center justify-end"></div>
       <Cards1 />
 
       <h1 className="text-white mt-8 w-full text-center text-xl opacity-50 ">
-
         CEP LAVRAS - MG
       </h1>
-      <span className="text-sm text-orange-500 w-full text-center opacity-50">Prof. Cosme Teixeira Silva</span>
-
+      <span className="text-sm text-orange-500 w-full text-center opacity-50">
+        Prof. Cosme Teixeira Silva
+      </span>
     </div>
   );
 }
