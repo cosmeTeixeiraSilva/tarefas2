@@ -9,9 +9,11 @@ export async function GET() {
     const qtdTarefasAndamento = await tarefaService.totalTarefasAndamento();
 
     return NextResponse.json({
+
         qtdTarefas,
         qtdTarefasPendentes,
         qtdTarefasConcluidas,
         qtdTarefasAndamento,
+
     });
 }
