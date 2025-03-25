@@ -1,84 +1,102 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  total_Tarefas,
-  total_TarefasPendentes,
-  total_TarefasConcluidas,
-  total_TarefasAndamento,
-} from "../actions";
 import {
   Card,
   CardHeader,
   CardContent,
   CardTitle,
   CardFooter,
-  CardDescription,
 } from "@/components/ui/card";
 
-export default async function Cards1() {
-  const qtdTarefas = await total_Tarefas(); // Chamada direta da Server Action - Deve ser Async - Await
-  const qtdTarefasPendentes = await total_TarefasPendentes(); // Chamada direta da Server Action - Deve ser Async - Await
-  const qtdTarefasConcluidas = await total_TarefasConcluidas(); // Chamada direta da Server Action - Deve ser Async - Await
-  const qtdTarefasAndamento = await total_TarefasAndamento(); // Chamada direta da Server Action - Deve ser Async - Await
+export default function Cards1() {
+  const [dados, setDados] = useState({
+    qtdTarefas: 0,
+    qtdTarefasPendentes: 0,
+    qtdTarefasConcluidas: 0,
+    qtdTarefasAndamento: 0,
+  });
+
+  // Função para buscar os dados da API
+  const fetchDados = async () => {
+    try {
+      const res = await fetch("/api/tarefas");
+      const data = await res.json();
+      console.log(data);
+      setDados(data);
+    } catch (error) {
+      console.error("Erro ao buscar os dados:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchDados();
+  }, []);
+
   return (
-    <div className="grid-cols-4 gap-2 flex  px-2 mt-2 ">
-      {/* Coluna 1 - Card Quantidade de Tarefas  */}
-      <Card className="w-1/4 h-44  bg-orange-500 text-white">
+    <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 px-2 mt-12 ">
+      {/* Card 1 - Total de Tarefas */}
+      <Card className="w-[90vw] sm:w-full h-44 bg-orange-500 text-white m-auto animate-bounce">
         <CardHeader>
           <CardTitle>Tarefas Registradas:</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-4xl font-semibold ">{qtdTarefas} tarefas</p>
+          <p className="text-4xl font-semibold">{dados.qtdTarefas} tarefas</p>
         </CardContent>
         <CardFooter>
-          <Button className="w-1/2 m-auto bg-transparent border">
+          <Button className=" w-full sm:w-full m-auto bg-transparent border">
             Ver Mais
           </Button>
         </CardFooter>
       </Card>
-      {/* Card 2 - Tarefas Pendentes*/}
-      <Card className="w-1/4 h-44  bg-blue-500 text-white">
+
+      {/* Card 2 - Tarefas Pendentes */}
+      <Card className="w-[90vw] sm:w-full h-44 bg-blue-500 text-white m-auto animate-pulse">
         <CardHeader>
           <CardTitle>Tarefas Pendentes:</CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-4xl font-semibold">
-            {qtdTarefasPendentes} tarefas
+            {dados.qtdTarefasPendentes} tarefas
           </p>
         </CardContent>
         <CardFooter>
-          <Button className="w-1/2 m-auto bg-transparent border">
+          <Button className="w-full sm:w-full m-auto bg-transparent border">
             Ver Mais
           </Button>
         </CardFooter>
       </Card>
-      {/* Card 3 - Tarefas Concluidas*/}
-      <Card className="w-1/4 h-44 bg-purple-600 text-white">
+
+      {/* Card 3 - Tarefas Concluídas */}
+      <Card className="w-[90vw] sm:w-full  h-44 bg-purple-600 text-white m-auto animate-bounce">
         <CardHeader>
           <CardTitle>Concluídas:</CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-4xl font-semibold">
-            {qtdTarefasConcluidas} tarefas
+            {dados.qtdTarefasConcluidas} tarefas
           </p>
         </CardContent>
         <CardFooter>
-          <Button className="w-1/2 m-auto bg-transparent border">
+          <Button className="w-full sm:w-fullm-auto bg-transparent border">
             Ver Mais
           </Button>
         </CardFooter>
       </Card>
-      {/* Card 4 - Tarefas em Andamento*/}
-      <Card className="w-1/4 h-44 bg-blue-800 text-white">
+
+      {/* Card 4 - Tarefas em Andamento */}
+      <Card className="w-[90vw] sm:w-full  h-44 bg-blue-800 text-white m-auto animate-pulse">
         <CardHeader>
           <CardTitle>Em Andamento:</CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-4xl font-semibold">
-            {qtdTarefasAndamento} tarefas
+            {dados.qtdTarefasAndamento} tarefas
           </p>
         </CardContent>
         <CardFooter>
-          <Button className="w-1/2 m-auto bg-transparent border">
+          <Button className="w-full sm:w-full m-auto bg-transparent border">
             Ver Mais
           </Button>
         </CardFooter>
