@@ -49,7 +49,7 @@ export default function Page() {
         initial={{ x: "-100vw" }}
         animate={{ x: "100vw" }}
         transition={{ duration: 15, ease: "linear", repeat: Infinity }}
-        className="text-white mt-8 w-full text-center text-xl opacity-50"
+        className="text-white mt-8 w-full text-center text-xl opacity-50 bg-orange-500 rounded p-2"
       >
         CEP LAVRAS - MG
       </motion.h1>
@@ -57,7 +57,7 @@ export default function Page() {
         initial={{ x: "100vw" }}
         animate={{ x: "-100vw" }}
         transition={{ duration: 15, ease: "linear", repeat: Infinity }}
-        className="text-sm text-orange-500 w-full text-center opacity-50 "
+        className="text-sm text-orange-500 w-full text-center opacity-50 bg-white rounded p-2 "
       >
         Prof. Cosme Teixeira Silva
       </motion.div>
