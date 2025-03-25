@@ -35,7 +35,7 @@ export default function Cards1() {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 px-2 mt-2 ">
+    <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 px-2 mt-20 ">
       {/* Card 1 - Total de Tarefas */}
       <Card className="w-[90vw] sm:w-full h-44 bg-orange-500 text-white m-auto animate-bounce">
         <CardHeader>

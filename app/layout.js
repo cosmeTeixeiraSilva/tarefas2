@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <body
-        className="w-screen bg-[#121212]"
+        className="w-screen bg-[#121212] overflow-hidden"
       >
         {children}
       </body>
