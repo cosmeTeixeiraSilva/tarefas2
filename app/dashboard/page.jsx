@@ -12,12 +12,12 @@ export default function Page() {
 
   return (
     <div>
-      <div className="text-xl w-full bg-blue-500 h-12 text-white p-2 text-center font-semibold flex items-center justify-between">
+      <div className="bg-blue-600 p-1 h-8 flex items-center justify-center sm:justify-between gap-4 fixed top-0 z-50 w-full border-b-2 text-white font-bold">
         DashBoard Geral
         <div className="flex gap-x-2">
           <Link href="/tarefas">
             <Button
-              className="px-4 text-xl bg-orange-600 w-full sm:w-[200px]"
+              className="px-8 h-6 rounded text-orange-400 font-bold border border-orange-400 bg-[#121212]"
               title="Voltar"
             >
               Voltar
@@ -30,7 +30,7 @@ export default function Page() {
         initial={{ x: "-100vw" }}
         animate={{ x: "100vw" }}
         transition={{ duration: 15, ease: "linear", repeat: Infinity }}
-        className="text-white mt-8 w-[300px] text-center text-2xl rounded bg-orange-500 p-2"
+        className="text-white mt-20 w-[300px] text-center text-xl rounded bg-orange-500 "
       >
         CEP LAVRAS - MG
       </motion.h1>
@@ -38,7 +38,7 @@ export default function Page() {
         initial={{ x: "100vw" }}
         animate={{ x: "-100vw" }}
         transition={{ duration: 15, ease: "linear", repeat: Infinity }}
-        className="text-2xl text-orange-500 w-[300px] text-center  rounded bg-slate-200 p-2"
+        className="text-xl text-orange-500 w-[300px] text-center  rounded bg-slate-200 "
       >
         Transformando vidas
       </motion.div>
@@ -46,7 +46,7 @@ export default function Page() {
         initial={{ x: "100vw" }}
         animate={{ x: "-100vw" }}
         transition={{ duration: 15, ease: "linear", repeat: Infinity }}
-        className="text-2xl text-orange-500 w-[300px] text-center  rounded bg-blue-400 p-2"
+        className="text-xl text-orange-500 w-[300px] text-center  rounded bg-blue-400 "
       >
         Maker
       </motion.div>
@@ -54,7 +54,7 @@ export default function Page() {
         initial={{ x: "100vw" }}
         animate={{ x: "-100vw" }}
         transition={{ duration: 15, ease: "linear", repeat: Infinity }}
-        className="text-2xl text-orange-500 w-[300px] text-center  rounded bg-blue-800 p-2"
+        className="text-xl text-orange-500 w-[300px] text-center  rounded bg-blue-800 "
       >
         Inteligencia Artificial
       </motion.div>
@@ -62,7 +62,7 @@ export default function Page() {
         initial={{ x: "100vw" }}
         animate={{ x: "-100vw" }}
         transition={{ duration: 15, ease: "linear", repeat: Infinity }}
-        className="text-2xl text-orange-500 w-[300px] text-center  rounded bg-blue-400 p-2"
+        className="text-xl text-orange-500 w-[300px] text-center  rounded bg-blue-400 "
       >
         IOT
       </motion.div>
@@ -72,7 +72,7 @@ export default function Page() {
         initial={{ x: "100vw" }}
         animate={{ x: "-100vw" }}
         transition={{ duration: 15, ease: "linear", repeat: Infinity }}
-        className="text-2xl text-orange-500 w-[300px] text-center  rounded bg-blue-400 p-2 mt-4"
+        className="text-xl text-orange-500 w-[300px] text-center  rounded bg-blue-400  mt-4"
       >
         Programação
       </motion.div>
@@ -81,7 +81,7 @@ export default function Page() {
         initial={{ x: "-100vw" }}
         animate={{ x: "100vw", rotate: 180 }}
         transition={{ duration: 15, ease: "linear", repeat: Infinity }}
-        className="text-white mt-8 w-[300px] text-center text-2xl rounded bg-orange-500 p-2"
+        className="text-white mt-8 w-[300px] text-center text-xl rounded bg-orange-500 "
       >
         CEP LAVRAS - MG
       </motion.h1>
@@ -89,7 +89,7 @@ export default function Page() {
         initial={{ x: "-100vw" }}
         animate={{ x: "100vw", rotate: 180 }}
         transition={{ duration: 15, ease: "easeInOut", repeat: Infinity }}
-        className="text-white mt-8 w-[300px] text-center text-2xl rounded bg-orange-500 p-2"
+        className="text-white mt-8 w-[300px] text-center text-xl rounded bg-orange-500"
       >
         SENAC - MG
       </motion.h1>
@@ -97,7 +97,7 @@ export default function Page() {
         initial={{ x: "-100vw" }}
         animate={{ x: "100vw" }}
         transition={{ duration: 15, ease: "linear", repeat: Infinity }}
-        className="text-white mt-8 w-[300px] text-center text-2xl rounded bg-orange-500 p-2"
+        className="text-white mt-8 w-[300px] text-center text-xl rounded bg-orange-500 "
       >
         SESC - MG
       </motion.h1>
@@ -105,7 +105,7 @@ export default function Page() {
         initial={{ x: "-100vw" }}
         animate={{ x: "100vw" }}
         transition={{ duration: 15, ease: "linear", repeat: Infinity }}
-        className="text-white mt-8 w-[300px] text-center text-2xl rounded bg-orange-500 p-2"
+        className="text-white mt-8 mb-20 w-[300px] text-center text-xl rounded bg-orange-500 "
       >
         FECOMERCIO - MG
       </motion.h1>

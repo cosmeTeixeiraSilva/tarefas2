@@ -60,7 +60,7 @@ export default function Cards1() {
       </Card>
 
       {/* Card 2 - Tarefas Pendentes */}
-      <Card className="w-[90vw] sm:w-full h-44 bg-blue-500 text-white m-auto animate-pulse">
+      <Card className="w-[90vw] sm:w-full h-44 bg-blue-500 text-white animate-pulse">
         <CardHeader>
           <CardTitle>Tarefas Pendentes:</CardTitle>
         </CardHeader>
