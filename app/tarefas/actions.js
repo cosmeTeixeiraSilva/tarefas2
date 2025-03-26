@@ -21,10 +21,10 @@ export async function listarTarefas() {
 export async function atualizarTarefa(formData) {
 
     const tarefaService = new TarefaService();
-    const id = parseInt(formData.get('id'));
+    const uuid = formData.get('uuid');
     const status = formData.get('status');
     console.log(status);
-    await tarefaService.atualizarTarefa(id, status);
+    await tarefaService.atualizarTarefa(uuid, status);
     revalidatePath("/tarefas"); // Atualiza a página principal automaticamente
     return { status: true, message: "Tarefa Atualizada com Sucesso..." }
 
@@ -33,8 +33,8 @@ export async function atualizarTarefa(formData) {
 
 export async function excluirTarefa(formData) {
     const tarefaService = new TarefaService();
-    const id = parseInt(formData.get('id'));
-    await tarefaService.excluirTarefa(id);
+    const uuid = formData.get('uuid');
+    await tarefaService.excluirTarefa(uuid);
     revalidatePath("/tarefas"); // Atualiza a página principal automaticamente
     return { status: true, message: "Tarefa Excluida com Sucesso..." }
 

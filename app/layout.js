@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Tarefas Lavras ",
+  title: "Tarefas Senac Lavras",
   description: "cosme.teixeira@gmail.com",
 };
 
