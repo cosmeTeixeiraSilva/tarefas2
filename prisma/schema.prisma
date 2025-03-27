@@ -12,6 +12,8 @@ model tarefas {
   id        Int    @id @unique @default(autoincrement())
   uuid      String @unique @default(uuid())
   descricao String
+  dia       DateTime   @default(now())
+  hora      String   @default("00:00")
   status    String @default("Pendente")
   cidade    String @default("Lavras")
 }

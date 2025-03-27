@@ -1,9 +1,9 @@
 
 import Link from 'next/link'
 import { listarTarefas } from "./actions"
-import ListaTarefas2 from './_components/ListaTarefas2';
 import FormCad from './_components/FormCad';
-
+import CardTarefas from './_components/cards';
+import TarefasResponsivo from './_components/tarefaResponsivo';
 
 export default async function Page() {
   //buscando as tarefas no banco via Server Actions
@@ -22,7 +22,7 @@ export default async function Page() {
       </nav>
 
       <div className=' flex flex-col justify-center items-center rounded mt-8 '>
-        <h1 className='py-2 underline underline-offset-2 text-center w-full text-orange-400 font-bold'>Lista de Tarefas:</h1>
+        <h1 className='py-2 text-xl text-center w-full text-orange-400 font-bold'>Lista de Tarefas.</h1>
 
         {/* Mover o formulário e os botões para um Client Component */}
         <FormCad />
@@ -31,7 +31,7 @@ export default async function Page() {
           {tarefas.length === 0 ? (
             <p className="text-center text-red-600 p-1 mt-2  rounded">Nenhuma tarefa encontrada.</p>
           ) : (
-            <ListaTarefas2 tarefas={tarefas} />
+            <TarefasResponsivo tarefas={tarefas} />
           )}
         </div>
       </div>
