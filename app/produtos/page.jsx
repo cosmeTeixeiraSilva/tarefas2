@@ -83,6 +83,9 @@ export default function Page() {
         <Link href="/" >
           <button className="px-8 rounded text-orange-400 font-bold border border-orange-400 bg-[#121212]">Sair</button>
         </Link>
+        <Link href="/tarefas" >
+          <button className="px-8 rounded text-orange-400 font-bold border border-orange-400 bg-[#121212]">Tarefas</button>
+        </Link>
 
         <Link href="/dashboard" >
           <button className="px-8 rounded text-orange-400 font-bold border border-orange-400 bg-[#121212]">DashBoard Tarefas</button>
