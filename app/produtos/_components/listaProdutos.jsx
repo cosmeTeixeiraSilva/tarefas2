@@ -14,7 +14,7 @@ export default function ListagemProdutos({
             <th className="text-start p-2">Produto</th>
             <th className="text-center">Quantidade</th>
             <th className="text-start">Fornecedor</th>
-            <th className="text-start">Ações</th>
+            <th className="text-center">Ações</th>
           </tr>
         </thead>
         <tbody className="space-y-4">
