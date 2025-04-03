@@ -67,6 +67,8 @@ export default function Page() {
       setLoading(false);
       setbtnOpacity("opacity-100");
     }
+    // Reseta os campos do formulário
+    event.target.reset();
   };
 
   // Função que faz  a mensagem sumir após 3 segundos
