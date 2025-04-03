@@ -2,13 +2,25 @@
 //Importando a Server Actions 
 import { criarTarefa } from "../actions";
 
-export default function FormCad() {
+export default function FormCad({ carregarTarefas }) {
+    //Função executada quando clica no botão
+    const handleSubmit = async (event) => {
+        event.preventDefault(); // Previne recarregar a página automaticamente
+        const formData = new FormData(event.target);
+        //Chamando a Server Action para Registrar o produto no Banco de Dados no arquivo action.js
+        const res = await criarTarefa(formData);
+        // Atualiza a lista de produtos após adicionar
+        carregarTarefas();
+
+    };
 
 
     return (
+
+
         <>
             {/* Formulário para Criar Nova Tarefa */}
-            < form action={criarTarefa} className='flex flex-col gap-4 w-full  items-center justify-center ' >
+            < form onSubmit={handleSubmit} className='flex flex-col gap-4 w-full  items-center justify-center ' >
 
 
                 <input type="text" autoFocus name="descricao" placeholder="Descrição Curta da Tarefa..." required className='p-2 rounded text-black  w-[90vw] sm:w-1/3   ' />

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import CardTarefas from "./cards";
 import ListaTarefas2 from "./ListaTarefas2";// Certifique-se de que esse componente existe
 
-export default function TarefasResponsivo({ tarefas }) {
+export default function TarefasResponsivo({ tarefas, carregarTarefas }) {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
@@ -18,5 +18,5 @@ export default function TarefasResponsivo({ tarefas }) {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    return isMobile ? <CardTarefas tarefas={tarefas} /> : <ListaTarefas2 tarefas={tarefas} />;
+    return isMobile ? <CardTarefas tarefas={tarefas} carregarTarefas={carregarTarefas} /> : <ListaTarefas2 tarefas={tarefas} carregarTarefas={carregarTarefas} />;
 }

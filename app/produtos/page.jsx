@@ -5,20 +5,24 @@ import ListagemProdutos from "./_components/listaProdutos";
 import { delay } from "@/lib/utils";
 import Link from "next/link";
 
+
 export default function Page() {
   const [message, setMessage] = useState("Meus Produtos Cadastrados");
   const [messageBG, setMessageBG] = useState("bg-green-500");
   const [produtos, setProdutos] = useState([]);
   const [msg, setMsg] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [loading2, setLoading2] = useState(true);
   const [btnOpacity, setbtnOpacity] = useState("opacity-100");
 
   const carregarProdutos = async () => {
-    const { status, produtos } = await ListarProdutos();
+    await delay(1500); // Espera 3 segundos antes de carregar os dados
+    const { produtos } = await ListarProdutos();
     if (produtos.length > 0) {
       setProdutos(produtos);
       console.log("Tem Produtos na Tabela");
       setMsg(true);
+      setLoading2(false)
     } else {
       console.log("Não tem Produtos na Tabela");
       setMsg(false);
@@ -59,7 +63,7 @@ export default function Page() {
       // Atualiza a lista de produtos após adicionar
       carregarProdutos();
       // Simulando o atraso de 3 segundos - crie a função delay em ./lib/utils.js na raiz do projeto
-      await delay(2500);
+      await delay(2000);
       setLoading(false);
       setbtnOpacity("opacity-100");
     }
@@ -71,7 +75,7 @@ export default function Page() {
       const timer = setTimeout(() => {
         setMessage("Meus Produtos Cadastrados"); // Limpa a mensagem após 3 segundos
         setMessageBG("bg-green-500");
-      }, 3000);
+      }, 2000);
 
       return () => clearTimeout(timer); // Limpa o timer se o componente for desmontado
     }
@@ -139,18 +143,22 @@ export default function Page() {
           {message}
         </h1>
       )}
-
-      {/* Listagem dos Produtos que recebe os produtos por variavel produtos linhas 9 e 14*/}
-      <ListagemProdutos
-        produtos={produtos}
-        carregarProdutos={carregarProdutos}
-        setMessage={setMessage}
-        setMessageBG={setMessageBG}
-      />
+      {/* Suspense para carregar os produtos */}
+      {loading2 ? (
+        <p className="text-white text-xl">Carregando produtos...</p>
+      ) : (
+        <ListagemProdutos
+          produtos={produtos}
+          carregarProdutos={carregarProdutos}
+          setMessage={setMessage}
+          setMessageBG={setMessageBG}
+        />
+      )}
 
       <h1 className="text-white text-xl mt-4">
-        {msg ? "" : "Sem Produtos Cadastrados"}
+        {msg ? "" : "Aguarde...."}
       </h1>
+
     </div>
   );
 }

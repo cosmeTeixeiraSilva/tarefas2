@@ -4,7 +4,7 @@ import { atualizarTarefa, excluirTarefa } from "../actions";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { useState } from "react";
 
-export default function ListaTarefas2({ tarefas }) {
+export default function ListaTarefas2({ tarefas, carregarTarefas }) {
     const [status, setStatus] = useState("Pendente");
 
     // Função para definir a cor com base no status
@@ -19,6 +19,28 @@ export default function ListaTarefas2({ tarefas }) {
             default:
                 return "bg-gray-200";
         }
+    };
+
+    //handleExcluir
+    //Função executada quando clica no botão
+    const handleExcluir = async (event) => {
+        event.preventDefault(); // Previne recarregar a página automaticamente
+        const formData = new FormData(event.target);
+        //Chamando a Server Action para Registrar o produto no Banco de Dados no arquivo action.js
+        const res = await excluirTarefa(formData);
+        // Atualiza a lista de produtos após adicionar
+        carregarTarefas();
+
+    };
+    //Função executada quando clica no botão
+    const handleEditar = async (event) => {
+        event.preventDefault(); // Previne recarregar a página automaticamente
+        const formData = new FormData(event.target);
+        //Chamando a Server Action para Registrar o produto no Banco de Dados no arquivo action.js
+        const res = await atualizarTarefa(formData);
+        // Atualiza a lista de produtos após adicionar
+        carregarTarefas();
+
     };
 
     return (
@@ -42,7 +64,7 @@ export default function ListaTarefas2({ tarefas }) {
                             <td className=" flex justify-evenly gap-x-1 ">
                                 <>
                                     {/* Formulário para Atualizar Status */}
-                                    <form action={atualizarTarefa} className="flex gap-8 my-1 ">
+                                    <form onSubmit={handleEditar} className="flex gap-8 my-1 ">
                                         <input type="hidden" name="uuid" value={tarefa.uuid} />
                                         <select name="status" className="text-black px-1 rounded" onChange={(e) => setStatus(e.target.value)}>
                                             <option value="" ></option>
@@ -54,7 +76,7 @@ export default function ListaTarefas2({ tarefas }) {
                                         {/* Formulário para Excluir */}
 
                                     </form>
-                                    <form action={excluirTarefa} className="text-sm p-1">
+                                    <form onSubmit={handleExcluir} className="text-sm p-1">
                                         <input type="hidden" name="uuid" value={tarefa.uuid} />
                                         <button type="submit" className="text-red-700" title="Excluir Tarefa"><FaRegTrashCan size={24} /> </button>
                                     </form>
