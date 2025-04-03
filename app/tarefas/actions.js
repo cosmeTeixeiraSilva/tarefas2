@@ -2,6 +2,7 @@
 'use server';
 import { TarefaService } from '../../lib/TarefaService';
 import { revalidatePath } from 'next/cache';
+import prisma from '@/lib/db';
 
 export async function criarTarefa(formData) {
     const tarefaService = new TarefaService();
@@ -20,11 +21,15 @@ export async function listarTarefas() {
 
 export async function atualizarTarefa(formData) {
 
-    const tarefaService = new TarefaService();
+
     const uuid = formData.get('uuid');
     const status = formData.get('status');
     console.log(status);
-    await tarefaService.atualizarTarefa(uuid, status);
+    const res = await prisma.tarefas.update({
+        where: { uuid },
+        data: { status }
+    });
+    console.log(res);
     revalidatePath("/tarefas"); // Atualiza a página principal automaticamente
     return { status: true, message: "Tarefa Atualizada com Sucesso..." }
 

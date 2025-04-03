@@ -16,6 +16,9 @@ export default async function Page() {
         <Link href="/" >
           <button className="px-8 rounded text-orange-400 font-bold border border-orange-400 bg-[#121212]">Sair</button>
         </Link>
+        <Link href="/produtos" >
+          <button className="px-8 rounded text-orange-400 font-bold border border-orange-400 bg-[#121212]">Produtos</button>
+        </Link>
         <Link href="/dashboard" >
           <button className="px-8 rounded text-orange-400 font-bold border border-orange-400 bg-[#121212]">DashBoard</button>
         </Link>

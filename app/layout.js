@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,9 +21,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <body
-        className="w-screen bg-[#121212] overflow-x-hidden"
+        className="w-screen bg-[#121212] overflow-x-hidden flex m-auto justify-center"
       >
         {children}
+
       </body>
     </html>
   );

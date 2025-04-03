@@ -1,7 +1,7 @@
 "use client";  // Agora esse componente é interativo
 
 import { atualizarTarefa, excluirTarefa } from "../actions";
-import { FaRegTrashCan, FaCheck } from "react-icons/fa6";
+import { FaRegTrashCan } from "react-icons/fa6";
 import { useState } from "react";
 
 export default function ListaTarefas2({ tarefas }) {
@@ -45,7 +45,7 @@ export default function ListaTarefas2({ tarefas }) {
                                     <form action={atualizarTarefa} className="flex gap-8 my-1 ">
                                         <input type="hidden" name="uuid" value={tarefa.uuid} />
                                         <select name="status" className="text-black px-1 rounded" onChange={(e) => setStatus(e.target.value)}>
-                                            <option value="" selected="true" ></option>
+                                            <option value="" ></option>
                                             <option value="Andamento">Andamento</option>
                                             <option value="Pendente">Pendente</option>
                                             <option value="Concluída">Concluída</option>
