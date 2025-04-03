@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { criarProduto, ListarProdutos } from "./actions";
 import ListagemProdutos from "./_components/listaProdutos";
 import { delay } from "@/lib/utils";
+import Link from "next/link";
 
 export default function Page() {
   const [message, setMessage] = useState("Meus Produtos Cadastrados");
