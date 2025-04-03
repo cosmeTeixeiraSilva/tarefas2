@@ -1,7 +1,6 @@
 'use server';
 import prisma from '@/lib/db';
-import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/dist/server/api-utils';
+
 
 export async function criarProduto(formData) {
     const descricao = formData.get('descricao');

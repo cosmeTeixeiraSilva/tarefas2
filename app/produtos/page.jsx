@@ -1,9 +1,10 @@
-"use client";
+"use client"; // Garante que o código roda no lado do cliente
 import { useState, useEffect } from "react";
 import { criarProduto, ListarProdutos } from "./actions";
 import ListagemProdutos from "./_components/listaProdutos";
 import { delay } from "@/lib/utils";
 import Link from "next/link";
+
 
 
 export default function Page() {
@@ -14,6 +15,7 @@ export default function Page() {
   const [loading, setLoading] = useState(false);
   const [loading2, setLoading2] = useState(true);
   const [btnOpacity, setbtnOpacity] = useState("opacity-100");
+
 
   const carregarProdutos = async () => {
     await delay(1500); // Espera 3 segundos antes de carregar os dados
@@ -40,6 +42,7 @@ export default function Page() {
     const formData = new FormData(event.target);
     const qtd = formData.get("qtd");
 
+
     //verificando se foi inserido um número na input
     if (!Number(qtd)) {
       setMessageBG("bg-red-800");
@@ -56,6 +59,7 @@ export default function Page() {
     //Chamando a Server Action para Registrar o produto no Banco de Dados no arquivo action.js
     const res = await criarProduto(formData);
 
+
     //Verificando o retorno da Server Action que fica no arquivo actions.js
     if (res.status === true) {
       console.log(res.message);
@@ -69,6 +73,7 @@ export default function Page() {
     }
     // Reseta os campos do formulário
     event.target.reset();
+
   };
 
   // Função que faz  a mensagem sumir após 3 segundos
