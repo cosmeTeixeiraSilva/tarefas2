@@ -78,6 +78,15 @@ export default function Page() {
 
   return (
     <div className="w-full m-auto flex items-center justify-center flex-col">
+      <nav className='bg-blue-600 p-1 flex items-center justify-center sm:justify-end gap-4 fixed top-0 z-50 w-full border-b-2'>
+        <Link href="/" >
+          <button className="px-8 rounded text-orange-400 font-bold border border-orange-400 bg-[#121212]">Sair</button>
+        </Link>
+
+        <Link href="/dashboard" >
+          <button className="px-8 rounded text-orange-400 font-bold border border-orange-400 bg-[#121212]">DashBoard Tarefas</button>
+        </Link>
+      </nav>
       <form
         onSubmit={handleSubmit}
         className="flex flex-col gap-4 items-center justify-center bg-white w-1/3 p-4 mt-16 rounded"
