@@ -1,0 +1,39 @@
+{
+  "node": {
+    "00d26e41df36d4f48df0b4cde5b460565d7f745526": {
+      "workers": {
+        "app/produtos/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FVolumes%2FBOOTCAMP%2FCursoNext_2025%2Ftarefas%2Ftarefas2%2Fapp%2Fprodutos%2Factions.js%22%2C%5B%5B%2200d26e41df36d4f48df0b4cde5b460565d7f745526%22%2C%22ListarProdutos%22%5D%2C%5B%224005c0882d556d43baedbd1f8912f67a069e911cca%22%2C%22criarProduto%22%5D%2C%5B%2240df5e7efba667c1f2593272e2d40d985d6db9aaea%22%2C%22excluirProduto%22%5D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/produtos/page": "action-browser"
+      }
+    },
+    "4005c0882d556d43baedbd1f8912f67a069e911cca": {
+      "workers": {
+        "app/produtos/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FVolumes%2FBOOTCAMP%2FCursoNext_2025%2Ftarefas%2Ftarefas2%2Fapp%2Fprodutos%2Factions.js%22%2C%5B%5B%2200d26e41df36d4f48df0b4cde5b460565d7f745526%22%2C%22ListarProdutos%22%5D%2C%5B%224005c0882d556d43baedbd1f8912f67a069e911cca%22%2C%22criarProduto%22%5D%2C%5B%2240df5e7efba667c1f2593272e2d40d985d6db9aaea%22%2C%22excluirProduto%22%5D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/produtos/page": "action-browser"
+      }
+    },
+    "40df5e7efba667c1f2593272e2d40d985d6db9aaea": {
+      "workers": {
+        "app/produtos/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FVolumes%2FBOOTCAMP%2FCursoNext_2025%2Ftarefas%2Ftarefas2%2Fapp%2Fprodutos%2Factions.js%22%2C%5B%5B%2200d26e41df36d4f48df0b4cde5b460565d7f745526%22%2C%22ListarProdutos%22%5D%2C%5B%224005c0882d556d43baedbd1f8912f67a069e911cca%22%2C%22criarProduto%22%5D%2C%5B%2240df5e7efba667c1f2593272e2d40d985d6db9aaea%22%2C%22excluirProduto%22%5D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/produtos/page": "action-browser"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "/TUvbPwURXJxrS9ufSMscIcJf5q9o+PyxPt+8MDowqo="
+}
