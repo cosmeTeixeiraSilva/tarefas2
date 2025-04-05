@@ -1,0 +1,87 @@
+"use client"; // Garante que o código roda no lado do cliente
+import { useState, useEffect } from "react";
+import { criarProduto, ListarProdutos } from "./actions";
+import ListagemProdutos from "./_components/listaProdutos";
+
+import Link from "next/link";
+import MenuPrincipal from "@/components/menu";
+
+export default function Page() {
+  const [produtos, setProdutos] = useState([]);
+
+  const carregarProdutos = async () => {
+    const { produtos } = await ListarProdutos();
+    if (produtos.length > 0) {
+      setProdutos(produtos);
+    } else {
+      setProdutos([]);
+    }
+  };
+
+  // O useEffect abaixo Carrega os produtos ao abrir a página
+  useEffect(() => {
+    carregarProdutos();
+  }, []);
+
+  //Função executada quando clica no botão
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Previne recarregar a página automaticamente
+    const formData = new FormData(event.target);
+    //Chamando a Server Action para Registrar o produto no Banco de Dados no arquivo action.js
+    const res = await criarProduto(formData);
+    // Reseta os campos do formulário
+    event.target.reset();
+    carregarProdutos();
+  };
+
+  return (
+    <>
+      <MenuPrincipal />
+      <div className="w-full m-auto flex items-center justify-center flex-col">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-4 items-center justify-center bg-white w-1/3 p-4 mt-16 rounded"
+        >
+          <h2 className="text-lg font-bold">Cadastrando Produto:</h2>
+
+          <input
+            type="text"
+            name="descricao"
+            placeholder="Descrição Curta do Produto..."
+            required
+            className="p-2 rounded text-black border border-black w-full"
+          />
+          <input
+            type="text"
+            name="qtd"
+            placeholder="Quantidade de Entrada..."
+            required
+            className="p-2 rounded text-black border border-black w-full"
+          />
+          <input
+            type="text"
+            name="fornecedor"
+            placeholder="Fornecedor do Produto..."
+            required
+            className="p-2 rounded text-black border border-black w-full"
+          />
+
+          {/* Botão  */}
+          <button
+            type="submit"
+            name="actionType"
+            value="produto1"
+            className={`bg-orange-500 p-2 rounded w-full text-bold text-sm text-white font-bold sm:text-xl hover:opacity-55 `}
+          >
+            Adicionar.
+          </button>
+        </form>
+
+        <ListagemProdutos
+          produtos={produtos}
+          carregarProdutos={carregarProdutos}
+        />
+      </div>
+    </>
+  );
+}

@@ -2,7 +2,8 @@
 //Importando a Server Actions 
 import { criarTarefa } from "../actions";
 
-export default function FormCad({ carregarTarefas }) {
+export default function FormCad({ carregarTarefas, btnOpacity, habililtado }) {
+
     //Função executada quando clica no botão
     const handleSubmit = async (event) => {
         event.preventDefault(); // Previne recarregar a página automaticamente
@@ -11,6 +12,7 @@ export default function FormCad({ carregarTarefas }) {
         const res = await criarTarefa(formData);
         // Atualiza a lista de produtos após adicionar
         carregarTarefas();
+
 
     };
 
@@ -25,7 +27,7 @@ export default function FormCad({ carregarTarefas }) {
 
                 <input type="text" autoFocus name="descricao" placeholder="Descrição Curta da Tarefa..." required className='p-2 rounded text-black  w-[90vw] sm:w-1/3   ' />
                 {/*Quando Clicar no botão chama a ServerAction criarTarefa */}
-                <button type="submit" className='bg-orange-500 p-2 rounded w-[90vw] sm:w-1/3 text-bold text-sm text-white font-bold sm:text-xl hover:opacity-55'>Adicionar Tarefa</button>
+                <button disabled={habililtado} type="submit" className={`bg-orange-500 p-2 rounded w-[90vw] disabled:opacity-50 sm:w-1/3 text-bold text-sm text-white font-bold sm:text-xl hover:opacity-55 ${btnOpacity}`}>Adicionar Tarefa</button>
 
             </form >
         </>

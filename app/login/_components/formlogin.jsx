@@ -16,7 +16,7 @@ export default function Formlogin() {
         className="rounded p-2 w-[90vw] sm:w-1/3 text-blue-500 m-auto text-sm"
       ></input>
 
-      <Link href={"/tarefas"} className=" w-full flex m-auto">
+      <Link href={"/home"} className=" w-full flex m-auto">
         <input
           type="button"
           value="Entrar"

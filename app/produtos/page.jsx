@@ -4,8 +4,7 @@ import { criarProduto, ListarProdutos } from "./actions";
 import ListagemProdutos from "./_components/listaProdutos";
 import { delay } from "@/lib/utils";
 import Link from "next/link";
-
-
+import MenuPrincipal from "@/components/menu";
 
 export default function Page() {
   const [message, setMessage] = useState("Meus Produtos Cadastrados");
@@ -16,7 +15,6 @@ export default function Page() {
   const [loading2, setLoading2] = useState(true);
   const [btnOpacity, setbtnOpacity] = useState("opacity-100");
 
-
   const carregarProdutos = async () => {
     await delay(1500); // Espera 3 segundos antes de carregar os dados
     const { produtos } = await ListarProdutos();
@@ -24,7 +22,7 @@ export default function Page() {
       setProdutos(produtos);
       console.log("Tem Produtos na Tabela");
       setMsg(true);
-      setLoading2(false)
+      setLoading2(false);
     } else {
       console.log("Não tem Produtos na Tabela");
       setMsg(false);
@@ -42,7 +40,6 @@ export default function Page() {
     const formData = new FormData(event.target);
     const qtd = formData.get("qtd");
 
-
     //verificando se foi inserido um número na input
     if (!Number(qtd)) {
       setMessageBG("bg-red-800");
@@ -59,7 +56,6 @@ export default function Page() {
     //Chamando a Server Action para Registrar o produto no Banco de Dados no arquivo action.js
     const res = await criarProduto(formData);
 
-
     //Verificando o retorno da Server Action que fica no arquivo actions.js
     if (res.status === true) {
       console.log(res.message);
@@ -73,7 +69,6 @@ export default function Page() {
     }
     // Reseta os campos do formulário
     event.target.reset();
-
   };
 
   // Função que faz  a mensagem sumir após 3 segundos
@@ -89,83 +84,71 @@ export default function Page() {
   }, [message]);
 
   return (
-    <div className="w-full m-auto flex items-center justify-center flex-col">
-      <nav className='bg-blue-600 p-1 flex items-center justify-center sm:justify-end gap-4 fixed top-0 z-50 w-full border-b-2'>
-        <Link href="/" >
-          <button className="px-8 rounded text-orange-400 font-bold border border-orange-400 bg-[#121212]">Sair</button>
-        </Link>
-        <Link href="/tarefas" >
-          <button className="px-8 rounded text-orange-400 font-bold border border-orange-400 bg-[#121212]">Tarefas</button>
-        </Link>
-
-        <Link href="/dashboard" >
-          <button className="px-8 rounded text-orange-400 font-bold border border-orange-400 bg-[#121212]">DashBoard Tarefas</button>
-        </Link>
-      </nav>
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col gap-4 items-center justify-center bg-white w-1/3 p-4 mt-16 rounded"
-      >
-        <h2 className="text-lg font-bold">Cadastrando Produto:</h2>
-
-        <input
-          type="text"
-          name="descricao"
-          placeholder="Descrição Curta do Produto..."
-          required
-          className="p-2 rounded text-black border border-black w-full"
-        />
-        <input
-          type="text"
-          name="qtd"
-          placeholder="Quantidade de Entrada..."
-          required
-          className="p-2 rounded text-black border border-black w-full"
-        />
-        <input
-          type="text"
-          name="fornecedor"
-          placeholder="Fornecedor do Produto..."
-          required
-          className="p-2 rounded text-black border border-black w-full"
-        />
-
-        {/* Botão  */}
-        <button
-          type="submit"
-          name="actionType"
-          value="produto1"
-          disabled={loading}
-          className={`bg-orange-500 p-2 rounded w-full text-bold text-sm text-white font-bold sm:text-xl hover:opacity-55 ${btnOpacity}`}
+    <>
+      <MenuPrincipal />
+      <div className="w-full m-auto flex items-center justify-center flex-col">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-4 items-center justify-center bg-white w-1/3 p-4 mt-16 rounded"
         >
-          Adicionar Produto.
-        </button>
-      </form>
+          <h2 className="text-lg font-bold">Cadastrando Produto:</h2>
 
-      {/* Mensagem de sucesso/erro */}
-      {message && (
-        <h1
-          className={`text-white text-center text-xl font-semibold mt-8 p-4 border border-white rounded w-1/3 ${messageBG}`}
-        >
-          {message}
-        </h1>
-      )}
-      {/* Suspense para carregar os produtos */}
-      {loading2 ? (
-        <p className="text-white text-xl">Carregando produtos...</p>
-      ) : (
-        <ListagemProdutos
-          produtos={produtos}
-          carregarProdutos={carregarProdutos}
-          setMessage={setMessage}
-          setMessageBG={setMessageBG}
-        />
-      )}
+          <input
+            type="text"
+            name="descricao"
+            placeholder="Descrição Curta do Produto..."
+            required
+            className="p-2 rounded text-black border border-black w-full"
+          />
+          <input
+            type="text"
+            name="qtd"
+            placeholder="Quantidade de Entrada..."
+            required
+            className="p-2 rounded text-black border border-black w-full"
+          />
+          <input
+            type="text"
+            name="fornecedor"
+            placeholder="Fornecedor do Produto..."
+            required
+            className="p-2 rounded text-black border border-black w-full"
+          />
 
-      <h1 className="text-white text-xl mt-4">
-        {msg ? "" : "Aguarde...."}
-      </h1>
+          {/* Botão  */}
+          <button
+            type="submit"
+            name="actionType"
+            value="produto1"
+            disabled={loading}
+            className={`bg-orange-500 p-2 rounded w-full text-bold text-sm text-white font-bold sm:text-xl hover:opacity-55 ${btnOpacity}`}
+          >
+            Adicionar Produto.
+          </button>
+        </form>
 
-    </div>
+        {/* Mensagem de sucesso/erro */}
+        {message && (
+          <h1
+            className={`text-white text-center text-xl font-semibold mt-8 p-4 border border-white rounded w-1/3 ${messageBG}`}
+          >
+            {message}
+          </h1>
+        )}
+        {/* Suspense para carregar os produtos */}
+        {loading2 ? (
+          <p className="text-white text-xl">Carregando produtos...</p>
+        ) : (
+          <ListagemProdutos
+            produtos={produtos}
+            carregarProdutos={carregarProdutos}
+            setMessage={setMessage}
+            setMessageBG={setMessageBG}
+          />
+        )}
+
+        <h1 className="text-white text-xl mt-4">{msg ? "" : "Aguarde...."}</h1>
+      </div>
+    </>
   );
 }
