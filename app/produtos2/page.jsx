@@ -38,7 +38,7 @@ export default function Page() {
   return (
     <div>
       <MenuPrincipal />
-      <p className="text-sm text-orange-400 font-semibold">
+      <p className="text-md mt-2 text-slate-200 font-semibold">
         App Gestão Produto.
       </p>
       <div className="flex items-center justify-center flex-col">
