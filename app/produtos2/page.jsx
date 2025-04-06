@@ -41,9 +41,11 @@ export default function Page() {
       <div className="flex items-center justify-center flex-col">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-4 items-center justify-center bg-white w-[85vw] p-4 mt-4 rounded"
+          className="flex flex-col gap-4 items-center justify-center bg-slate-200 w-[85vw] p-4 mt-4 rounded border-4 border-orange-400"
         >
-          <h2 className="text-lg font-bold">Cadastrando Produto:</h2>
+          <h2 className="text-lg font-bold text-orange-400">
+            Cadastrando Produto:
+          </h2>
 
           <input
             type="text"

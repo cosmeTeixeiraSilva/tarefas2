@@ -19,7 +19,7 @@ export default function BotaoExcluir({ id, carregarProdutos }) {
   return (
     <button
       onClick={handleExcluir}
-      className="text-white  bg-red-800 hover:opacity-70 py-3 rounded text-xl w-full mt-2"
+      className="text-white  bg-red-800 hover:opacity-70 py-3 rounded text-xl w-full mt-2 font-bold"
       title="Excluir Produto"
       value={id}
     >

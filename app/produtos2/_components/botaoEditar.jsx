@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { findProduto, updateProduto } from "../actions";
+import { delay } from "@/lib/utils";
 
 export default function BotaoEditar({ id, carregarProdutos }) {
   const [open, setOpen] = useState(false);
@@ -23,6 +24,7 @@ export default function BotaoEditar({ id, carregarProdutos }) {
     if (status) {
       setProduto(produto);
       console.log(produto);
+      delay(1000);
       setOpen(true);
     }
   };
@@ -41,7 +43,7 @@ export default function BotaoEditar({ id, carregarProdutos }) {
       <SheetTrigger asChild>
         <Button
           onClick={handleOpen}
-          className="text-white  bg-orange-400 hover:opacity-70 py-6 rounded text-xl w-full"
+          className="text-white  bg-orange-400 hover:opacity-70 py-6 rounded text-xl w-full font-bold"
         >
           Editar
         </Button>
