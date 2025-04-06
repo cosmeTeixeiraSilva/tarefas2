@@ -38,6 +38,9 @@ export default function Page() {
   return (
     <div>
       <MenuPrincipal />
+      <p className="text-sm text-orange-400 font-semibold">
+        App Gestão Produto.
+      </p>
       <div className="flex items-center justify-center flex-col">
         <form
           onSubmit={handleSubmit}
