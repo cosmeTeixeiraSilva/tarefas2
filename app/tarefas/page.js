@@ -6,7 +6,7 @@ import FormCad from "./_components/FormCad";
 import TarefasResponsivo from "./_components/tarefaResponsivo";
 import { delay } from "@/lib/utils";
 import { useState, useEffect } from "react";
-import MenuPrincipal from "@/components/menu";
+import MenuPrincipal from "@/app/produtos2/_components/menu";
 
 
 export default function Page() {

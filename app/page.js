@@ -11,7 +11,7 @@ export default function Home() {
       </nav>
 
 
-      <div className="mx-auto rounded p-2 mt-4">
+      <div className="rounded p-2 mt-4">
 
 
         <Image

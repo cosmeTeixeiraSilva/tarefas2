@@ -41,7 +41,7 @@ export default function BotaoEditar({ id, carregarProdutos }) {
       <SheetTrigger asChild>
         <Button
           onClick={handleOpen}
-          className="text-white  bg-orange-400 hover:opacity-70 px-2 rounded text-xl"
+          className="text-white  bg-orange-400 hover:opacity-70 py-6 rounded text-xl w-full"
         >
           Editar
         </Button>

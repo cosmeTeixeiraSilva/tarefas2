@@ -11,10 +11,10 @@ export default function Page() {
   const router = useRouter();
 
   return (
-    <div className="w-[90vw] flex m-auto items-center justify-center">
+    <div className="w-[90vw] flex  m-auto items-center justify-center">
       <div className="bg-blue-600 p-6 h-8 flex items-center justify-center sm:justify-between gap-4 fixed top-0 z-50 w-screen border-b-2 text-white font-bold ">
         DashBoard Geral
-        <div className="flex gap-x-2">
+        <div className="flex flex-col gap-x-2">
           <Link href="/tarefas">
             <Button
               className="px-8 h-6 rounded text-orange-400 font-bold border border-orange-400 bg-[#121212]"
@@ -110,7 +110,6 @@ export default function Page() {
           FECOMERCIO - MG
         </motion.h1>
       </div>
-
     </div>
   );
 }

@@ -2,9 +2,10 @@
 import { useState, useEffect } from "react";
 import { criarProduto, ListarProdutos } from "./actions";
 import ListagemProdutos from "./_components/listaProdutos";
-
+import Mobile from "@/lib/utils";
 import Link from "next/link";
-import MenuPrincipal from "@/components/menu";
+import MenuPrincipal from "@/app/produtos2/_components/menu";
+import CardProdutos from "./_components/cardProdutos";
 
 export default function Page() {
   const [produtos, setProdutos] = useState([]);
@@ -35,12 +36,12 @@ export default function Page() {
   };
 
   return (
-    <>
+    <div>
       <MenuPrincipal />
-      <div className="w-full m-auto flex items-center justify-center flex-col">
+      <div className="flex items-center justify-center flex-col">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-4 items-center justify-center bg-white w-1/3 p-4 mt-16 rounded"
+          className="flex flex-col gap-4 items-center justify-center bg-white w-[85vw] p-4 mt-4 rounded"
         >
           <h2 className="text-lg font-bold">Cadastrando Produto:</h2>
 
@@ -49,21 +50,21 @@ export default function Page() {
             name="descricao"
             placeholder="Descrição Curta do Produto..."
             required
-            className="p-2 rounded text-black border border-black w-full"
+            className="p-2 rounded text-black border border-black w-full text-sm"
           />
           <input
             type="text"
             name="qtd"
             placeholder="Quantidade de Entrada..."
             required
-            className="p-2 rounded text-black border border-black w-full"
+            className="p-2 rounded text-black border border-black w-full text-sm"
           />
           <input
             type="text"
             name="fornecedor"
             placeholder="Fornecedor do Produto..."
             required
-            className="p-2 rounded text-black border border-black w-full"
+            className="p-2 rounded text-black border border-black w-full text-sm"
           />
 
           {/* Botão  */}
@@ -71,17 +72,23 @@ export default function Page() {
             type="submit"
             name="actionType"
             value="produto1"
-            className={`bg-orange-500 p-2 rounded w-full text-bold text-sm text-white font-bold sm:text-xl hover:opacity-55 `}
+            className={`bg-blue-600 p-3 rounded w-full text-bold  text-white font-bold text-xl hover:opacity-55 `}
           >
-            Adicionar.
+            Adicionar
           </button>
         </form>
-
-        <ListagemProdutos
-          produtos={produtos}
-          carregarProdutos={carregarProdutos}
-        />
+        {Mobile ? (
+          <CardProdutos
+            produtos={produtos}
+            carregarProdutos={carregarProdutos}
+          />
+        ) : (
+          <ListagemProdutos
+            produtos={produtos}
+            carregarProdutos={carregarProdutos}
+          />
+        )}
       </div>
-    </>
+    </div>
   );
 }

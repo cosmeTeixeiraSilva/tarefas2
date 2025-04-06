@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { findProduto, updateProduto } from "../actions";
-import { delay } from "@/lib/utils";
+
 
 export default function BotaoEditar2({ id, carregarProdutos }) {
   const [open, setOpen] = useState(false);

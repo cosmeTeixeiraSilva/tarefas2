@@ -4,7 +4,7 @@ import { criarProduto, ListarProdutos } from "./actions";
 import ListagemProdutos from "./_components/listaProdutos";
 import { delay } from "@/lib/utils";
 import Link from "next/link";
-import MenuPrincipal from "@/components/menu";
+import MenuPrincipal from "@/app/produtos2/_components/menu";
 
 export default function Page() {
   const [message, setMessage] = useState("Meus Produtos Cadastrados");

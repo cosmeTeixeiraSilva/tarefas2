@@ -1,7 +1,9 @@
+import Menu from "./_components/menu";
 
 export default function Layout({ children }) {
     return (
-        <div className="flex items-center justify-center h-screen w-screen bg-slate-200">
+        <div className="flex flex-col items-center justify-center w-screen bg-slate-200">
+            <Menu />
             {children};
         </div>
     )
