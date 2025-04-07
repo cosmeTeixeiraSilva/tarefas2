@@ -38,13 +38,13 @@ export default function Page() {
   return (
     <div>
       <MenuPrincipal />
-      <p className="text-md mt-2 text-slate-200 font-semibold">
+      <p className="text-md m-4 text-slate-200 font-semibold">
         App Gestão Produto.
       </p>
       <div className="flex items-center justify-center flex-col">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-4 items-center justify-center bg-slate-200 w-[85vw] p-4 mt-4 rounded border-4 border-orange-400"
+          className="flex flex-col gap-4 items-center justify-center bg-[#121212] w-[85vw] p-4 mt-4 rounded border-4 border-orange-400"
         >
           <h2 className="text-lg font-bold text-orange-400">
             Cadastrando Produto:

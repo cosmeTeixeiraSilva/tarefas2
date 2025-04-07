@@ -3,7 +3,7 @@
 import { TarefaService } from '../../lib/TarefaService';
 import { revalidatePath } from 'next/cache';
 import prisma from '@/lib/db';
-import { redirect } from 'next/dist/server/api-utils';
+
 
 export async function criarTarefa(formData) {
     const tarefaService = new TarefaService();
