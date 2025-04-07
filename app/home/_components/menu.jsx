@@ -12,7 +12,7 @@ export default function Menu() {
           </Button>
         </Link>
       </nav>
-      <h1 className=" text-orange-500 text-end mt-4 text-sm px-4 ">
+      <h1 className=" text-orange-500 text-end mt-4 text-sm px-2 w-full">
         <p>Prof. Cosme Teixeira Silva </p>
         <p>Senac / MG</p>
         <p>Lavras</p>
